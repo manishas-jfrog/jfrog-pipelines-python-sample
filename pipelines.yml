@@ -18,6 +18,7 @@ pipelines:
             - name: python_repo
           integrations:
             - name: {{ .Values.artifactory }}
+            - name: {{ .Values.generic }}
         execution:
           onExecute:
             - pushd $res_python_repo_resourcePath

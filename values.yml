@@ -1,3 +1,4 @@
 repoPath: manishas-jfrog/jfrog-pipelines-python-sample
 gitProvider: manishas_jfrog
 artifactory: demoArt
+generic: myArtCreds
