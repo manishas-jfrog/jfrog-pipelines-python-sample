@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 # Function definition is here
-def printme( str ):
+def printme():
     # This prints a passed string into this function
-    print (str)
+    print ("Hello from JFROG")
     return;
 
 # Now you can call printme function
-printme("Hello from JFROG");
+# printme("Hello from JFROG");
