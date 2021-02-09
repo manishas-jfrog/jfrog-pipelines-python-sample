@@ -24,6 +24,7 @@ pipelines:
             - pushd $res_python_repo_resourcePath
             - ./config-helper.sh
             - pip install -r requirements.txt
+            - python setup.py register -r local
             - python setup.py sdist upload -r local
             - python setup.py bdist_wheel upload -r local
             - /var/opt/jfrog/pipelines/jfrog/jfrog rt bce $step_name $run_number
