@@ -1,0 +1,28 @@
+template: true   # required for local templates
+valuesFilePath: ./values.yml
+
+resources:
+  - name: python_repo
+    type: GitRepo
+    configuration:
+      path: {{ .Values.repoPath }}
+      gitProvider: {{ .Values.gitProvider }}
+
+pipelines:
+  - name: python_build_pipeline
+    steps:
+      - name: python_build
+        type: Bash
+        configuration:
+          inputResources:
+            - name: python_repo
+          integrations:
+            - name: {{ .Values.artifactory }}
+        execution:
+          onExecute:
+            - ./config-helper.sh
+            - pip install -r requirements.txt
+            - python setup.py sdist upload -r local
+            - python setup.py bdist_wheel upload -r local
+            - /var/opt/jfrog/pipelines/jfrog/jfrog rt bce $step_name $run_number
+            - /var/opt/jfrog/pipelines/jfrog/jfrog rt bp $step_name $run_number
