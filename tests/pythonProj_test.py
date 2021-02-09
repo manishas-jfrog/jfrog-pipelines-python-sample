@@ -2,10 +2,10 @@ from nose.tools import *
 import pythonProj
 
 def setup():
-    print ("SETUP!")
+    printme ("SETUP!")
 
 def teardown():
-    print ("TEAR DOWN!")
+    printme ("TEAR DOWN!")
 
 def test_basic():
-    print ("I RAN!")
+    printme ("I RAN!")

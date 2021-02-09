@@ -11,6 +11,6 @@ setup(
     url="https://pipedemo.jfrog.io/artifactory/api/pypi/python-remote/jfdemo",
     version="0.1",
     install_requires=["nose",],
-    packages=["pythonProj",],
+    packages=["pythonProj","tests",],
     name="pythonProj"
 )
